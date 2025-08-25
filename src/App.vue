@@ -1,30 +1,36 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import Ex1 from './components/Ex1.vue';
+import Ex2 from './components/Ex2.vue';
+import Ex3 from './components/Ex3.vue';
+import Ex4 from './components/Ex4.vue';
+
+const pages = { Ex1, Ex2, Ex3, Ex4 }
+const activeComp = ref("Ex1")
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <button @click="activeComp = 'Ex1'">Bind</button>
+  <button @click="activeComp = 'Ex2'">If</button>
+  <button @click="activeComp = 'Ex3'">Show</button>
+  <button @click="activeComp = 'Ex4'">For</button>
+  
+  <div id="comp_view">
+    <KeepAlive>
+      <component :is="pages[activeComp]"></component>
+    </KeepAlive>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  button {
+    margin: 5px;
+    filter: drop-shadow(0 0 1.5px #123);
+  }
+
+  #comp_view {
+    margin-top: 20px;
+    border: 1px solid orange;
+    border-radius: 10px;
+  }
 </style>
