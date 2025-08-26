@@ -1,36 +1,44 @@
 <script setup>
+import D2_bind from './components/D2_bind.vue';
+import D2_if from './components/D2_if.vue';
+import D2_show from './components/D2_show.vue';
+import D2_for from './components/D2_for.vue';
+import D2_event from './components/D2_event.vue';
 import { ref } from 'vue';
-import Ex1 from './components/Ex1.vue';
-import Ex2 from './components/Ex2.vue';
-import Ex3 from './components/Ex3.vue';
-import Ex4 from './components/Ex4.vue';
 
-const pages = { Ex1, Ex2, Ex3, Ex4 }
-const activeComp = ref("Ex1")
+// 컴포넌트 맵
+const pages = {D2_bind, D2_if, D2_show, D2_for, D2_event}
+const activeComp = ref(`D2_bind`)
+
 </script>
 
-<template>
-  <button @click="activeComp = 'Ex1'">Bind</button>
-  <button @click="activeComp = 'Ex2'">If</button>
-  <button @click="activeComp = 'Ex3'">Show</button>
-  <button @click="activeComp = 'Ex4'">For</button>
-  
-  <div id="comp_view">
+<template> 
+  <!-- 페이지 클릭시 보여줄 컴포넌트 -->
+   <button v-on:click="activeComp = 'D2_bind'">v-bind</button>
+   <button @click="activeComp = 'D2_if'" >if</button>
+   <button @click="activeComp = 'D2_show'" >show</button>
+   <button @click="activeComp = 'D2_for'">for</button>
+   <button @click="activeComp = 'D2_event'">event</button>
+
+   <div class="page-view" >
     <KeepAlive>
-      <component :is="pages[activeComp]"></component>
+    <component :is = "pages[activeComp]"></component>
     </KeepAlive>
-  </div>
+   </div>
 </template>
 
 <style scoped>
-  button {
-    margin: 5px;
-    filter: drop-shadow(0 0 1.5px #123);
-  }
+.page-view {
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
 
-  #comp_view {
-    margin-top: 20px;
-    border: 1px solid orange;
-    border-radius: 10px;
-  }
+button {
+  margin: 10px;
+  filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.15));
+}
+
 </style>
