@@ -1,25 +1,50 @@
 <script setup>
-
 </script>
 
 <template>
-<h1>Hello App!</h1>
-  <p>경로 : {{ $route.fullPath }}</p>
-  <nav>
-    <ul>
-      <li><RouterLink to="/">Go to Home</RouterLink></li>
-      <li><RouterLink to="/about">Go to About</RouterLink></li>
-      <li><RouterLink to="/study">Go to StudyView</RouterLink></li>
-      <li><RouterLink to="/wd">Go to Ex_WebDesign</RouterLink></li>
-    </ul>
-  </nav>
-  <main>
-    <RouterView />
-  </main>
+  <div id="appRoot">
+    <h1>Hello App!</h1>
+    <p>경로 : {{ $route.fullPath }}</p>
+    <nav>
+      <ul>
+        <RouterLink to="/">
+          <li>Go to Home</li>
+        </RouterLink>
+        <RouterLink to="/about">
+          <li>Go to About</li>
+        </RouterLink>
+        <RouterLink to="/study">
+          <li>Go to StudyView</li>
+        </RouterLink>
+        <RouterLink to="/wd">
+          <li>Go to Ex_WebDesign</li>
+        </RouterLink>
+      </ul>
+    </nav>
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style scoped>
-  li {
-    list-style: none;
-  }
+#appRoot {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  font-weight: bolder;
+  display: inline-block;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  box-shadow: 5px 3px 3px 3px rgba(200, 200, 200, 0.3);
+}
+
+li:hover {
+  color: #FF1744;
+  background-color: lightblue;
+}
 </style>

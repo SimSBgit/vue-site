@@ -1,6 +1,6 @@
 <template>
     <div>
-gdf
+nav가 들어갈 영역
     </div>
 </template>
 
@@ -8,6 +8,6 @@ gdf
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

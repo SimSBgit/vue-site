@@ -1,6 +1,6 @@
 <template>
     <div>
-fds
+fdsddf
     </div>
 </template>
 
@@ -8,6 +8,6 @@ fds
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
